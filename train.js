@@ -105,32 +105,14 @@ function counter() {
     return increment;
 }
 
-2-variant
-function tashqari() {
-    console.log('Tashqaridagi function');
-    function ichkari() {
-        console.log('ichkaridagi function');
 
-    }
-    ichkari();
+// MIT TASK A last solution
+
+const countLetter = (letter, word) => {
+    let count = 0; 
+    word.split("").forEach(el => el === letter && count++)
+    return count 
 }
-tashqari();
-
-
-
-
-function addNumbers(param1, param2) {
-    return param1 + param2;
-}
-let result = addNumbers(5, 7);
-console.log(result);
-
-const car = {
-    make: 'Toyota';
-    model: 'Camry';
-
-};
-console.log(car)
 
 
 */
