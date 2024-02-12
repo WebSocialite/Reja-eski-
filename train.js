@@ -110,7 +110,10 @@ function counter() {
 
 const countLetter = (letter, word) => {
     let count = 0; 
-    word.split("").forEach(el => el === letter && count++)
+    word.split("").forEach(el => {
+        if (el === letter) {
+            count++;
+        });
     return count 
 }
 
