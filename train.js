@@ -37,35 +37,35 @@
 
 
 // TASK
-console.log('Jack Ma advises');
-const list = [ 
-    "be a good student", // 0-20
-    "choose good mentor", // 20-40
-    "run ur own business",// 40-50
-    "promote the young generation", // 50-60
+// console.log('Jack Ma advises');
+// const list = [ 
+//     "be a good student", // 0-20
+//     "choose good mentor", // 20-40
+//     "run ur own business",// 40-50
+//     "promote the young generation", // 50-60
 
-];
+// ];
 
-async function giveAdvice(a) {
-    if(typeof a !== 'number') throw new Error("instert a number");
-    else if(a <= 20) return list[0];
-    else if(a > 20 && a <= 30) return list[1];
-    else if(a > 30 && a <= 40) return list[2];
-    else if(a > 40 && a <= 50) return list[3];
-    else if(a > 50 && a <= 60) return list[4];
-    else {
+// async function giveAdvice(a) {
+//     if(typeof a !== 'number') throw new Error("instert a number");
+//     else if(a <= 20) return list[0];
+//     else if(a > 20 && a <= 30) return list[1];
+//     else if(a > 30 && a <= 40) return list[2];
+//     else if(a > 40 && a <= 50) return list[3];
+//     else if(a > 50 && a <= 60) return list[4];
+//     else {
 
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(list[5]);
-            }, 5000);
-        });
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 resolve(list[5]);
+//             }, 5000);
+//         });
         // setTimeout(function() {
         //     return(null, list[5]);
         // }, 5000);
         // return(null, list[5]);
-    }
-} 
+//     }
+// } 
 
 
 // console.log('passed here 0');
@@ -82,15 +82,38 @@ async function giveAdvice(a) {
 
 
 //async await
-async function run() {
-  let result = await giveAdvice(20);
-  console.log(result);
-  result = await giveAdvice(31);
-  console.log(result);
-  result = await giveAdvice(41);
-  console.log(result);
-}
-run();
+// async function run() {
+//   let result = await giveAdvice(20);
+//   console.log(result);
+//   result = await giveAdvice(31);
+//   console.log(result);
+//   result = await giveAdvice(41);
+//   console.log(result);
+// }
+// run();
+
+
+
+
+
+// TASK B
+/*
+
+const countDigits = (string) => {
+  let count = 0; 
+  for (let i = 0; i < string.length; i++) { 
+      if (!isNaN(parseInt(string[i]))) { 
+          count++; 
+      }
+  }
+  return count; 
+};
+
+
+console.log(countDigits("ad2a54y79wet0sfgb9"));  => 7 
+/*
+
+
 
 // TASK A
 
@@ -119,3 +142,5 @@ const countLetter = (letter, word) => {
 
 
 */
+
+
