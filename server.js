@@ -1,86 +1,63 @@
-console.log("Web Server boshlash");
-const http = require("http")
-// expressni kochirib olamiz  npm i express
+// 12/02   MongoDB va CRUD operatsiyalari
+console.log('Starting Web server');
 const express = require("express");
-const res = require("express/lib/express");
-const app = express(); //shu belgini qoysek bizga expressni app objectni yuboradi
-// app objectida shartli server quramiz
-// expressgakirib kelayotgan malumotlarga bogliq bolgan code larmiz yoziladi
-//**     1: kirish
-app.use(express.static("public")); // bu har qanday kelyatgan zaprosslar uchun public ochiq degan manoni anglatadi faqat public folderni koradi
-// google chrome expressga request qilyatganda public folderni client larga ochib beryabmiz css kerek boladigon img larni shu erga joylashadi
+const res = require("express/lib/response");
+const app = express();
+const http = require('http');
 
+// 1 kirish code
+app.use(express.static("public"));
 app.use(express.json());
-// kirib kelayotgan json formatni object holatga ogirib beradi perevod 
+app.use(express.urlencoded({ extended: true }));
 
-app.use(express.urlencoded({extended:true}));
-//Html dan traditional form request  formdan biron bir post qilsak qabul qiladi  agar yozmasakn post larni qabul qilmaydi
+// 2: Session code
+// 3: Views code 
+app.set("views", "views");
+app.set("view engine", "ejs");
 
-//***   2: Session
-
-// **    3: bssr view yasagani ejsdan foydalanamiz  'npm i ejs' install qivolamiz
-app.set("views", "views"); // folderni korsatyabmiz  viewsdan oqiydi folder ochamiz
-app.set("view engine", "ejs"); //ejs ni korsatyabmiz ejsda frontend ni yasaymiz backendni ichida
-/* 
-//**    4:  ROUTING  routerlarga moljallangan  rooterrlarni shakillantirib olaamiz
-app.get("/hello",function(req, res){
-    res.end('<h1 style = background:blue>Hello World! this is Hello Page </h1>');
+//4 routing code
+app.post("/create-item", (req, res) => {
+    //to do: code with db here
 });
 
-app.get("/gift", (req,res) => {
-    res.end('<h1 style= color:red > This is gift Page</h1>');
+app.get("/", function (req, res) {
+    res.render('reja');
 });
 
-app.get("/blog",(req,res) =>{
-    res.end('<h1 style = color:blue; > Salom bu Blog  B\'olimidasiz siz bu erda blog yozishingiz mumkin</h1>')
-});
-
-
-const server = http.createServer(app); //biz yasab olgan express app variableni pass qilish
+const server = http.createServer(app);
 let PORT = 3000;
-server.listen(PORT, function(){
-     console.log("Server ishga tushdi:",PORT);
-}); // server succes bolsa iwlasa fucntion ishga tushadi 
-
-//Expressni 4 ta bolimda shakillantirdik va uni serverga yukladik  npm start
-
-//! "dev": "nodemon"  dev run nodemon  
-
-
-*/
-
-const fs = require("fs");
-
-let user; // userni publishing bolish uchun pass qilamiz 
-fs.readFile("database/user.json", "utf8", (err,data ) => {
-if(err) {
-    console.log("ERROR:",err); // bu error bolgandegi chiqadigon hato
-}else{
-    user = JSON.parse(data); // bu ishalgan  paytda data ni oladi 
-}
+server.listen(PORT, function () {
+    console.log(
+        `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`
+    
+    );
 });
 
+             // another lesson
+// const http = require("http");
 
-//4 Routine code 
-app.post("/create-list", (req, res) => {   //post formdan shu erga keladi 
-    console.log(req); // body qismidan requestni qabul qiladi  body qismidan malumot keladi
-    res.json({ test: "succes"}); // res.json  json shaklida malumotni qaytarish 
-})
+// const mongodb = require("mongodb");
 
-app.get("/ ", (req, res) => {
-    res.render("harid")
-})
+// let db;
+// const connectionString = "mongodb+srv://boburmirzosherboev:GDHoOdhY3a3YOgIw@cluster0.cs4cbzo.mongodb.net/"
 
-app.get("/author", (req, res) => {
-    res.render("author", { user: user}) //userni pass qildik
-})
+// mongodb.connect(connectionString, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// }, (err, client) => {
+//     if(err) console.log('Error on connection MONGO DB');
+//     else {
+//         console.log("MongoDB connection succeed");
+//         module.exports = client;
 
-const server = http.createServer(app); //biz yasab olgan express app variableni pass qilish
-let PORT = 3000;
-server.listen(PORT, function(){
-     console.log("Server ishga tushdi:",`${PORT}`);
-}); // server succes bolsa iwlasa fucntion ishga tushadi 
-
-
-// ** GET: databasedan malumotni olish uchun ishlatiladi malumotni oqish uchun 
-// ** POST: databasega malumot yuborish uchun ishlatiladi ozi bn olib keladi 
+//         const app = require("./app");
+//     const server = http.createServer(app);
+//     let PORT = 3000;
+//     server.listen(PORT, function () {
+//       console.log(`the server is running successfully on port: ${PORT},
+//      http://localhost:${PORT}`
+//     );
+//     });
+//     }
+// }
+// );

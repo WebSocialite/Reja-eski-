@@ -1,3 +1,51 @@
+// TASK  C 
+class Shop {
+    non = 0;
+    cola = 0;
+    lagmon = 0;
+constructor(non, cola, lagmon) {
+    this.non = non;
+    this.cola = cola;
+    this.lagmon = lagmon;
+};
+//method
+sotish(sold) {
+    if (this.non -= sold) {
+    } else if (this.cola -= sold) {
+    } else if (this.lagmon -= sold) {
+     console.log(`${this.oziqa}`);
+    } 
+    
+};
+  qabul(oziqa) {
+    if (this.non += oziqa) {
+        console.log(oziqa);
+    } else if (this.cola += oziqa) {
+        console.log(oziqa);
+    } else if (this.lagmon += oziqa) {
+        console.log(oziqa);
+    }
+};
+qoldiq() {
+    console.log(`now 20:40, and you have ${this.non} non, 
+    ${this.cola} cola, 
+    ${this.lagmon} lagmon`);
+
+};
+};
+           // TASK D
+
+function checkContent(str1, str2) {
+    const c = str1 === str2;
+    console.log(c);
+}
+
+checkContent('yes', 'yes');
+
+
+
+
+
 // // TASK
 // console.log('Jack Ma advises');
 // const list = [ 
